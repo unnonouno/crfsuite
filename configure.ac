@@ -11,7 +11,7 @@ dnl ------------------------------------------------------------------
 dnl Initialization for autoconf
 dnl ------------------------------------------------------------------
 AC_PREREQ(2.59)
-AC_INIT
+AC_INIT(crfsuite, 0.12)
 AC_CONFIG_SRCDIR([frontend/main.c])
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -27,10 +27,10 @@ AC_ISC_POSIX
 dnl ------------------------------------------------------------------
 dnl Initialization for automake
 dnl ------------------------------------------------------------------
-AM_INIT_AUTOMAKE(crfsuite, 0.12)
+AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_HEADERS(config.h)
 AM_MAINTAINER_MODE
-AM_C_PROTOTYPES
+#AM_C_PROTOTYPES
 
 
 dnl ------------------------------------------------------------------
@@ -47,7 +47,7 @@ dnl Initialization for variables
 dnl ------------------------------------------------------------------
 CFLAGS="-std=c99 ${ac_save_CFLAGS}"
 LDFLAGS="${ac_save_LDFLAGS}"
-INCLUDES="-I\$(top_srcdir) -I\$(top_srcdir)/include -I\$(srcdir)"
+AM_CPPFLAGS="-I\$(top_srcdir) -I\$(top_srcdir)/include -I\$(srcdir)"
 
 
 dnl ------------------------------------------------------------------
@@ -138,7 +138,8 @@ dnl Export variables
 dnl ------------------------------------------------------------------
 AC_SUBST(CFLAGS)
 AC_SUBST(LDFLAGS)
-AC_SUBST(INCLUDES)
+#AC_SUBST(INCLUDES)
+AC_SUBST(AM_CPPFLAGS)
 AC_SUBST(includedir)
 AC_SUBST(libdir)
 

@@ -22,7 +22,6 @@ crfsuite_SOURCES = \
 #crfsuite_CPPFLAGS =
 
 AM_CFLAGS = @CFLAGS@
-INCLUDES = @INCLUDES@
 AM_LDFLAGS = @LDFLAGS@
 
 crfsuite_CFLAGS = -I$(top_builddir)/include
