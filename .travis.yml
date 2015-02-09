@@ -1,0 +1,15 @@
+language: c
+
+
+compiler:
+  - gcc
+  - clang
+
+before_install:
+  - curl -L http://github.com/downloads/chokkan/liblbfgs/liblbfgs-1.10.tar.gz -o liblbfgs-1.10.tar.gz && tar zxf liblbfgs-1.10.tar.gz && cd liblbfgs-1.10 && ./configure && make && sudo make install && sudo ldconfig
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make
+  - make check
